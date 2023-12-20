@@ -47,7 +47,7 @@ class test_fileStorage(unittest.TestCase):
         self.assertFalse(os.path.exists('file.json'))
 
     def test_empty(self):
-        """ Data is saved to file """
+        """ Saves Data to file """
         new = BaseModel()
         thing = new.to_dict()
         new.save()
