@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Console Module """
+""" Main Console Module """
 import cmd
 import sys
 from models.base_model import BaseModel
@@ -13,7 +13,7 @@ from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
-    """ Contains the functionality for the HBNB console"""
+    """ Functionality Container for the HBNB console"""
 
     # determines prompt for interactive/non-interactive modes
     prompt = '(hbnb) ' if sys.__stdin__.isatty() else ''
@@ -36,7 +36,7 @@ class HBNBCommand(cmd.Cmd):
             print('(hbnb)')
 
     def precmd(self, line):
-        """Reformat command line for advanced command syntax.
+        """Reformats command line for advanced command syntax.
 
         Usage: <class name>.<command>([<id> [<*args> or <**kwargs>]])
         (Brackets denote optional fields in usage example.)
@@ -87,7 +87,7 @@ class HBNBCommand(cmd.Cmd):
             return line
 
     def postcmd(self, stop, line):
-        """Prints if isatty is false"""
+        """If isatty is false Print"""
         if not sys.__stdin__.isatty():
             print('(hbnb) ', end='')
         return stop
@@ -101,20 +101,20 @@ class HBNBCommand(cmd.Cmd):
         print("Exits the program with formatting\n")
 
     def do_EOF(self, arg):
-        """ Handles EOF to exit program """
+        """ EOF to exit program Handler """
         print()
         exit()
 
     def help_EOF(self):
-        """ Prints the help documentation for EOF """
+        """ Help documentation for EOF Print """
         print("Exits the program without formatting\n")
 
     def emptyline(self):
-        """ Overrides the emptyline method of CMD """
+        """ Emptyline method of CMD Overide """
         pass
 
     def do_create(self, args):
-        """ Create an object of any class"""
+        """ Object of any class Creater"""
         try:
             if not args:
                 raise SyntaxError()
