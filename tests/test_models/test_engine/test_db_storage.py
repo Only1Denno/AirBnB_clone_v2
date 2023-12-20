@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Contains the TestDBStorageDocs and TestDBStorage classes
+The Test Database Storage Docs and Test Datab Storage classes Container
 """
 from datetime import datetime
 import inspect
@@ -24,10 +24,10 @@ storage_t = os.getenv("HBNB_TYPE_STORAGE")
 
 
 class TestDBStorageDocs(unittest.TestCase):
-    """Tests to check the documentation and style of DBStorage class"""
+    """For testing to check the documentation and style of DBStorage class"""
     @classmethod
     def setUpClass(cls):
-        """Set up for the doc tests"""
+        """Doc tests Setup"""
         cls.dbs_f = inspect.getmembers(DBStorage, inspect.isfunction)
 
     def test_pep8_conformance_db_storage(self):
@@ -43,7 +43,7 @@ class TestDBStorageDocs(unittest.TestCase):
         result = pep8s.check_files(['tests/test_models/test_engine/\
 test_db_storage.py'])
         self.assertEqual(result.total_errors, 0,
-                         "Found code style errors (and warnings).")
+                         "Display found code style errors (and warnings).")
 
 
 # class TestFileStorage(unittest.TestCase):
