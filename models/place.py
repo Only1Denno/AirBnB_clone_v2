@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This is the place class"""
+"""Class for place"""
 from sqlalchemy.ext.declarative import declarative_base
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, Table, String, Integer, Float, ForeignKey
@@ -20,19 +20,20 @@ place_amenity = Table("place_amenity", Base.metadata,
 
 
 class Place(BaseModel, Base):
-    """This is the class for Place
+    """Place class
+     below are the identified attributes for place
     Attributes:
         city_id: city id
         user_id: user id
         name: name input
-        description: string of description
-        number_rooms: number of room in int
-        number_bathrooms: number of bathrooms in int
-        max_guest: maximum guest in int
-        price_by_night:: pice for a staying in int
-        latitude: latitude in flaot
-        longitude: longitude in float
-        amenity_ids: list of Amenity ids
+        description: Description for place in string
+        number_rooms: room numbers in int
+        number_bathrooms: Bathrooms numbers in int
+        max_guest: maximum number of guests in int
+        price_by_night:: Specific price for night in int
+        latitude: latitude specification in flaot
+        longitude: longitude specification in float
+        amenity_ids: list of amenity identified in ids
     """
     __tablename__ = "places"
     city_id = Column(String(60), ForeignKey("cities.id"), nullable=False)
@@ -57,7 +58,7 @@ class Place(BaseModel, Base):
     else:
         @property
         def reviews(self):
-            """ Returns list of reviews.id """
+            """ Returns reviews.id """
             var = models.storage.all()
             lista = []
             result = []
@@ -73,11 +74,11 @@ class Place(BaseModel, Base):
 
         @property
         def amenities(self):
-            """ Returns list of amenity ids """
+            """ Returns amenity ids """
             return self.amenity_ids
 
         @amenities.setter
         def amenities(self, obj=None):
-            """ Appends amenity ids to the attribute """
+            """ Appends amenity ids | attribute """
             if type(obj) is Amenity and obj.id not in self.amenity_ids:
                 self.amenity_ids.append(obj.id)
