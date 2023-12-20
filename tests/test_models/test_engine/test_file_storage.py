@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Module for testing file storage"""
+""" File storage Testing Module"""
 import unittest
 from models.base_model import BaseModel
 from models import storage
@@ -7,7 +7,7 @@ import os
 
 
 class test_fileStorage(unittest.TestCase):
-    """ Class to test the file storage method """
+    """ Storage method File Testing Class """
 
     def setUp(self):
         """ Set up test environment """
