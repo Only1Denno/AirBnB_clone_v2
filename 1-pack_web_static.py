@@ -1,12 +1,13 @@
 #!/usr/bin/python3
 # Fabfile to generates a .tgz archive from the contents of web_static.
+""" imports for  datetime and local dir """
 import os.path
 from datetime import datetime
 from fabric.api import local
 
 
 def do_pack():
-    """Create a compressed tar gzipped archive of the directory web_static."""
+    """Compressed file web_static."""
     dt = datetime.utcnow()
     # format the date and time as a string
     file = "versions/web_static_{}{}{}{}{}{}.tgz".format(dt.year,
